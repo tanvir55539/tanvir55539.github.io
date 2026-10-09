@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanvir Ahmed | IoT, Robotics &amp; Machine Learning</title>
+<meta name="description" content="Tanvir Ahmed is a B.Sc. graduate in IoT and Robotics Engineering working on IoT security, edge AI and assistive technology.">
+<meta property="og:title" content="Tanvir Ahmed | IoT, Robotics &amp; Machine Learning">
+<meta property="og:description" content="Research and projects in IoT security, edge AI, robotics and assistive technology.">
+<meta name="theme-color" content="#0E1B2C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F6F9; --surface:#FFFFFF; --ink:#0E1B2C; --muted:#56667A; --line:#D9E1EA;
+  --accent:#1F5EFF; --accent-ink:#FFFFFF; --soft:#E6EEFF; --warn:#B26A00; --warn-soft:#FFF1D9;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1522; --surface:#122033; --ink:#E8EEF6; --muted:#9AABC0; --line:#23344B;
+    --accent:#6C9BFF; --accent-ink:#0B1522; --soft:#17294A; --warn:#F2B35A; --warn-soft:#3A2B10;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1522; --surface:#122033; --ink:#E8EEF6; --muted:#9AABC0; --line:#23344B;
+  --accent:#6C9BFF; --accent-ink:#0B1522; --soft:#17294A; --warn:#F2B35A; --warn-soft:#3A2B10;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:6px;z-index:10}
+.skip:focus{left:8px}
+
+.layout{display:grid;grid-template-columns:320px minmax(0,1fr);max-width:1240px;margin:0 auto}
+
+/* Sidebar */
+.side{position:sticky;top:0;height:100vh;padding:48px 36px;display:flex;flex-direction:column;gap:26px;border-right:1px solid var(--line);overflow-y:auto}
+.photo{width:132px;height:132px;border-radius:50%;object-fit:cover;object-position:center 20%;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
+.side h1{font-family:var(--display);font-size:2rem;line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.role{color:var(--muted);font-size:.95rem;margin-top:6px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav a{color:var(--muted);padding:6px 0 6px 14px;border-left:2px solid var(--line);font-size:.95rem;font-weight:500}
+.nav a:hover{color:var(--ink);text-decoration:none}
+.nav a.on{color:var(--ink);border-left-color:var(--accent)}
+.links{display:flex;flex-direction:column;gap:8px;font-size:.92rem;margin-top:auto}
+.links a{color:var(--ink);display:flex;align-items:center;gap:10px}
+.links svg{width:18px;height:18px;flex:none;fill:currentColor;color:var(--muted)}
+.theme{align-self:flex-start;background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:6px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+.theme:hover{color:var(--ink);border-color:var(--muted)}
+
+/* Main */
+main{padding:48px 56px 80px;min-width:0}
+section{padding:56px 0 8px;border-top:1px solid var(--line)}
+section:first-child{border-top:0;padding-top:0}
+h2{font-family:var(--display);font-size:1.7rem;letter-spacing:-.01em;margin-bottom:24px}
+h3{font-family:var(--display);font-size:1.15rem;font-weight:700;line-height:1.3}
+p{max-width:68ch}
+
+.hero h2{font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.08;letter-spacing:-.03em;max-width:17ch;margin-bottom:20px}
+.hero p{font-size:1.1rem;color:var(--muted)}
+.trace{width:100%;height:110px;display:block;margin:36px 0 28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trace path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+.trace .grid{stroke:var(--line);stroke-width:1}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:32px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.facts div{padding:16px 18px;border-right:1px solid var(--line)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font-family:var(--display);font-size:1.5rem;line-height:1.2}
+.facts span{font-size:.85rem;color:var(--muted)}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.tags li{background:var(--soft);color:var(--accent);padding:4px 12px;border-radius:999px;font-size:.88rem;font-weight:500}
+.tags.small li{padding:2px 10px;font-size:.8rem;background:transparent;border:1px solid var(--line);color:var(--muted)}
+
+/* Feature (thesis / capstone) */
+.feature{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:26px 28px;margin-bottom:20px}
+.feature .kind{font-size:.85rem;color:var(--accent);font-weight:600;margin-bottom:6px}
+.feature ul,.row ul{margin:14px 0 16px 1.1rem;color:var(--muted)}
+.feature li,.row li{margin-bottom:6px;max-width:72ch}
+
+/* Project rows */
+.row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding:26px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row .meta{color:var(--muted);font-size:.88rem}
+.row ul{margin-top:10px}
+
+/* Publications */
+.pub-group{margin-bottom:34px}
+.pub-group h3{margin-bottom:14px;color:var(--muted);font-size:.95rem;font-family:var(--body);font-weight:600}
+.pub{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:12px}
+.pub .t{font-weight:600;font-family:var(--display);font-size:1.05rem;line-height:1.35}
+.pub .v{color:var(--muted);font-size:.92rem;margin-top:6px;font-style:italic}
+.pub .a{font-size:.88rem;margin-top:8px;color:var(--muted)}
+.pub .a b{color:var(--ink)}
+.badge{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 10px;border-radius:999px;margin-left:8px;vertical-align:2px;background:var(--soft);color:var(--accent)}
+.badge.review{background:var(--warn-soft);color:var(--warn)}
+
+/* Skills */
+.skill{display:grid;grid-template-columns:200px minmax(0,1fr);gap:8px 28px;padding:16px 0;border-top:1px solid var(--line)}
+.skill:first-of-type{border-top:0}
+.skill h3{font-size:1rem}
+
+/* Education / achievements */
+.edu{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 28px;padding:18px 0;border-top:1px solid var(--line)}
+.edu:first-of-type{border-top:0}
+.edu .yr{color:var(--muted);font-size:.9rem}
+.edu p{color:var(--muted);font-size:.95rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.plain{list-style:none}
+.plain li{padding:10px 0;border-top:1px solid var(--line);font-size:.95rem}
+.plain li:first-child{border-top:0}
+.plain span{color:var(--muted);display:block;font-size:.85rem}
+
+.contact p{margin-bottom:18px;color:var(--muted)}
+footer{margin-top:64px;color:var(--muted);font-size:.85rem}
+
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:32px 24px;flex-direction:column}
+  .nav{flex-direction:row;flex-wrap:wrap;gap:6px 16px}
+  .nav a{border-left:0;border-bottom:2px solid var(--line);padding:4px 0}
+  .nav a.on{border-bottom-color:var(--accent)}
+  .links{margin-top:0}
+  main{padding:32px 24px 64px}
+}
+@media (max-width:640px){
+  .row,.skill,.edu{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr;gap:0}
+  .facts div{border-right:0;border-bottom:1px solid var(--line)}
+  .facts div:last-child{border-bottom:0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+<div class="layout">
+
+<aside class="side">
+  <div>
+    <img class="photo" src="photo.jpg" alt="Portrait of Tanvir Ahmed" width="132" height="132">
+  </div>
+  <div>
+    <h1>Tanvir Ahmed</h1>
+    <p class="role">B.Sc. in IoT and Robotics Engineering</p>
+  </div>
+  <nav class="nav" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="links">
+    <a href="mailto:tanvir.ire@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2V5Zm2 2v.5l8 5 8-5V7H4Zm16 3-8 5-8-5V17h16v-7Z"/></svg>tanvir.ire@gmail.com</a>
+    <a href="https://github.com/tanvir55539" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>github.com/tanvir55539</a>
+    <a href="https://www.linkedin.com/in/tanvir-ahmed-a82692216/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.8v1.54h.06c.53-1 1.82-2.04 3.75-2.04 4 0 4.74 2.63 4.74 6.05V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4V9.75Z"/></svg>LinkedIn</a>
+  </div>
+  <button class="theme" id="theme" type="button" aria-label="Switch colour theme">Switch theme</button>
+</aside>
+
+<main>
+
+<section id="about" class="hero">
+  <h2>I build IoT and AI systems that sense, decide and act.</h2>
+  <p>I recently completed my B.Sc. in Internet of Things and Robotics Engineering at the University of Frontier Technology, Bangladesh. My work covers IoT security, edge AI, deep learning and assistive technology, from ESP32 hardware to transformer models and mobile apps.</p>
+
+  <svg class="trace" id="trace" viewBox="0 0 800 110" preserveAspectRatio="none" role="img" aria-label="Decorative sensor signal trace">
+    <line class="grid" x1="0" y1="55" x2="800" y2="55"/>
+    <path id="tracePath" d=""/>
+  </svg>
+
+  <div class="cta">
+    <a class="btn primary" href="#projects">View projects</a>
+    <a class="btn ghost" href="Tanvir_Ahmed_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+  </div>
+
+  <div class="facts">
+    <div><b>3.76</b><span>CGPA out of 4.00</span></div>
+    <div><b>4</b><span>Dean's List terms</span></div>
+    <div><b>3</b><span>Papers published or accepted</span></div>
+    <div><b>1</b><span>Manuscript under review</span></div>
+  </div>
+</section>
+
+<section id="research">
+  <h2>Research</h2>
+  <ul class="tags" style="margin-bottom:28px">
+    <li>Machine Learning</li><li>IoT and IoT Security</li><li>Robotics</li><li>Edge AI</li><li>Deep Learning</li>
+  </ul>
+
+  <article class="feature">
+    <div class="kind">Bachelor thesis</div>
+    <h3>A Quantum-Inspired Fidelity-Density Framework with Confidence-Aware Swarm Collaboration for Decentralized IoT Anomaly Detection</h3>
+    <ul>
+      <li>Built a benign-reference, quantum-inspired anomaly detector that combines fidelity similarity with local density deviation for decentralized IoT intrusion detection.</li>
+      <li>Added confidence-aware swarm peer collaboration, where devices verify alarms at inference time using confidence-weighted consensus and local anomaly evidence.</li>
+      <li>Evaluated on CICIoT2023 and X-IIoTID against one-class baselines, with repeated-seed experiments, statistical analysis and an NS-3 network-level validation.</li>
+    </ul>
+    <ul class="tags small"><li>Anomaly detection</li><li>IoT security</li><li>CICIoT2023</li><li>X-IIoTID</li><li>NS-3</li></ul>
+  </article>
+</section>
+
+<section id="publications">
+  <h2>Publications</h2>
+
+  <div class="pub-group">
+    <h3>Journal</h3>
+    <div class="pub">
+      <div class="t">IoT-Based Smart Homes: Technologies, Security Risks and Countermeasures<span class="badge">Published</span></div>
+      <div class="v">International Journal of Information Engineering and Electronic Business (IJIEEB), vol. 18, no. 3, June 2026</div>
+      <div class="a"><b>Tanvir Ahmed</b>, Akhterujjaman Siddiquee, Sheikh Sidratul Muntaha Punno, Md. Moshiur Rahman, Fahmida Ahmed Antara, Sadia Enam</div>
+    </div>
+  </div>
+
+  <div class="pub-group">
+    <h3>Conference</h3>
+    <div class="pub">
+      <div class="t">Transformer-Based Models for Student Mental Health Detection: A Comparative Study of BERT, RoBERTa and Gemma</div>
+      <div class="v">IEEE 5th International Conference on Electrical, Computer &amp; Telecommunication Engineering (ICECTE), 2026</div>
+      <div class="a">Sheikh Sidratul Muntaha Punno, <b>Tanvir Ahmed</b>, Md. Akhtarujjaman Siddiquee, Suman Saha</div>
+    </div>
+    <div class="pub">
+      <div class="t">AgriMind: An IoT-Driven LLM Framework for Intelligent Precision Agriculture</div>
+      <div class="v">IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN), 2026</div>
+      <div class="a">Sheikh Sidratul Muntaha Punno, <b>Tanvir Ahmed</b>, Md. Akhtarujjaman Siddiquee, Zohaira Khan Amisha, Saurav Chandra Das</div>
+    </div>
+  </div>
+
+  <div class="pub-group">
+    <h3>Under review</h3>
+    <div class="pub">
+      <div class="t">SmartVision: A Multimodal Mobile Assistant for Visually Impaired Users Using Hybrid AI and Real-Time Interaction<span class="badge review">Under review</span></div>
+      <div class="v">Submitted to Signal, Image and Video Processing (Springer), 2026</div>
+      <div class="a">Sheikh Sidratul Muntaha Punno, <b>Tanvir Ahmed</b>, Md. Moshiur Rahman, Farzana Akter, Sadia Enam</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <article class="feature">
+    <div class="kind">Bachelor capstone</div>
+    <h3>SmartVision: Multimodal Mobile Assistant for Visually Impaired Users</h3>
+    <ul>
+      <li>Built a cross-platform Flutter app that gives visually impaired users real-time navigation, scene description and obstacle detection.</li>
+      <li>Combined the Google Gemini API for online scene understanding with TensorFlow Lite for offline, on-device object detection and proximity awareness.</li>
+      <li>Delivered feedback through text-to-speech and haptic vibration, so guidance arrives as both sound and touch.</li>
+    </ul>
+    <ul class="tags small"><li>Flutter</li><li>Dart</li><li>Gemini API</li><li>TensorFlow Lite</li><li>Accessibility</li></ul>
+  </article>
+
+  <div class="row">
+    <div class="meta">Academic project</div>
+    <div>
+      <h3>IoT-Driven Smart Farming System</h3>
+      <ul>
+        <li>ESP32 system monitoring temperature, humidity, soil moisture, water level and air quality.</li>
+        <li>ThingSpeak dashboards for live sensor data, with control of a water pump, fan and artificial lighting.</li>
+        <li>Gemini API recommendations shown in a Flutter mobile and web monitoring interface.</li>
+      </ul>
+      <ul class="tags small"><li>ESP32</li><li>ThingSpeak</li><li>Gemini API</li><li>Flutter</li></ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Academic project</div>
+    <div>
+      <h3>Student Mental Health Detection</h3>
+      <ul>
+        <li>Multi-class text classifier built with BERT, RoBERTa and Gemma-3-4B-it, including preprocessing and tokenization.</li>
+        <li>Used LoRA fine-tuning to adapt Gemma-3-4B-it efficiently for the classification task.</li>
+      </ul>
+      <ul class="tags small"><li>NLP</li><li>Transformers</li><li>LoRA</li><li>Python</li></ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Academic project</div>
+    <div>
+      <h3>Fire Fighting Rescuers Eye Bot</h3>
+      <ul>
+        <li>Rescue robot with autonomous obstacle avoidance, fire detection and extinguishing.</li>
+        <li>Built on ESP32-CAM, ultrasonic and flame sensors, an L298N motor driver, a servo, Bluetooth and a water pump.</li>
+        <li>Manual and autonomous modes, with camera monitoring and human detection.</li>
+      </ul>
+      <ul class="tags small"><li>ESP32-CAM</li><li>Robotics</li><li>Sensors</li></ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Academic project</div>
+    <div>
+      <h3>Smart Tunnel for Maintenance and Security</h3>
+      <ul>
+        <li>Tunnel monitoring for light, air quality and security, using BH1750 and MQ135 sensors with ESP32 and ESP32-CAM video surveillance.</li>
+        <li>Remote monitoring and control of tunnel ventilation and other devices through the Blynk platform.</li>
+      </ul>
+      <ul class="tags small"><li>ESP32</li><li>Blynk</li><li>MQ135</li><li>BH1750</li></ul>
+    </div>
+  </div>
+
+  <p style="margin-top:12px">More code is on <a href="https://github.com/tanvir55539" target="_blank" rel="noopener">GitHub</a>.</p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skill"><h3>Programming</h3><ul class="tags"><li>C</li><li>C++</li><li>Python</li><li>Java</li><li>Kotlin</li><li>Dart</li></ul></div>
+  <div class="skill"><h3>Embedded and IoT</h3><ul class="tags"><li>Arduino</li><li>ESP8266</li><li>ESP32</li><li>ESP32-CAM</li><li>Raspberry Pi</li></ul></div>
+  <div class="skill"><h3>AI and machine learning</h3><ul class="tags"><li>Machine Learning</li><li>Deep Learning</li><li>NLP</li><li>LLM fine-tuning</li><li>Computer Vision</li><li>Transformers</li><li>BERT</li><li>RoBERTa</li></ul></div>
+  <div class="skill"><h3>Platforms and tools</h3><ul class="tags"><li>Blynk IoT</li><li>Tinkercad</li><li>Google Colab</li><li>Android Studio</li><li>VS Code</li><li>PyCharm</li><li>Arduino IDE</li><li>Cisco Packet Tracer</li><li>VMware Workstation</li><li>Firebase</li><li>SQLite</li><li>MySQL Workbench</li><li>Git</li><li>GitHub</li></ul></div>
+  <div class="skill"><h3>Documentation and design</h3><ul class="tags"><li>Overleaf</li><li>draw.io</li><li>Canva</li><li>Word</li><li>Excel</li><li>PowerPoint</li></ul></div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="edu"><div class="yr">2022 – 2026</div><div><h3>B.Sc. Engineering in Internet of Things and Robotics Engineering</h3><p>University of Frontier Technology, Bangladesh. CGPA 3.76 / 4.00</p></div></div>
+  <div class="edu"><div class="yr">2020</div><div><h3>Higher Secondary Certificate</h3><p>Bangladesh Navy School and College, Chittagong. GPA 5.00 / 5.00</p></div></div>
+  <div class="edu"><div class="yr">2018</div><div><h3>Secondary School Certificate</h3><p>BAF Shaheen School and College, Chittagong. GPA 5.00 / 5.00</p></div></div>
+
+  <div class="two" style="margin-top:40px">
+    <div>
+      <h3 style="margin-bottom:10px">Achievements and certifications</h3>
+      <ul class="plain">
+        <li>Dean's List, Level 4 Term 1 and Term 2<span>University of Frontier Technology, 2026</span></li>
+        <li>Dean's List, Level 3 Term 1 and Term 2<span>University of Frontier Technology, 2025</span></li>
+        <li>Job Ready Certification<span>Wadhwani Foundation, 21st Century Core Employability Skills Program, 2023</span></li>
+        <li>Project showcasing, DUET Techfest 2023<span>DUET Robotics Club, 2023</span></li>
+        <li>Junior Scholarship<span>2015</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="margin-bottom:10px">Languages</h3>
+      <ul class="plain">
+        <li>English<span>Professional working proficiency</span></li>
+        <li>Bangla<span>Native</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>I'm open to research collaborations, graduate study opportunities and roles in IoT, embedded systems and applied machine learning. Email is the fastest way to reach me.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:tanvir.ire@gmail.com">Email me</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/tanvir-ahmed-a82692216/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn ghost" href="https://github.com/tanvir55539" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <footer>© <span id="yr">2026</span> Tanvir Ahmed</footer>
+</section>
+
+</main>
+</div>
+
+<script>
+/* Year */
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Theme toggle */
+(function(){
+  var root = document.documentElement, btn = document.getElementById('theme');
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  btn.addEventListener('click', function(){
+    var current = root.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+  });
+})();
+
+/* Scrollspy */
+(function(){
+  var links = document.querySelectorAll('.nav a');
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(l){ l.classList.remove('on'); });
+        if (map[e.target.id]) map[e.target.id].classList.add('on');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  document.querySelectorAll('main section').forEach(function(s){ io.observe(s); });
+})();
+
+/* Sensor trace: a signal that slowly scrolls. Static when reduced motion is on. */
+(function(){
+  var path = document.getElementById('tracePath');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 800, H = 110, mid = 55, t = 0;
+  function sample(x, t){
+    var s = Math.sin((x + t) / 38) * 10 + Math.sin((x + t) / 11) * 4;
+    var p = ((x + t) % 260);
+    if (p > 120 && p < 128) s -= 34 * (1 - Math.abs(p - 124) / 4);
+    if (p >= 128 && p < 136) s += 24 * (1 - Math.abs(p - 132) / 4);
+    return mid + s;
+  }
+  function draw(){
+    var d = 'M0 ' + sample(0, t).toFixed(1);
+    for (var x = 4; x <= W; x += 4) d += ' L' + x + ' ' + sample(x, t).toFixed(1);
+    path.setAttribute('d', d);
+  }
+  draw();
+  if (!reduce) {
+    (function loop(){ t += 0.8; draw(); requestAnimationFrame(loop); })();
+  }
+})();
+</script>
+</body>
+</html>
