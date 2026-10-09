@@ -94,6 +94,8 @@ p{max-width:68ch}
 .row:first-of-type{border-top:0}
 .row .meta{color:var(--muted);font-size:.88rem}
 .row ul{margin-top:10px}
+.plinks{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:.9rem;font-weight:500}
+.sub{font-size:.95rem;font-family:var(--body);font-weight:600;color:var(--muted);margin:40px 0 4px}
 
 /* Publications */
 .pub-group{margin-bottom:34px}
@@ -223,6 +225,7 @@ footer{margin-top:64px;color:var(--muted);font-size:.85rem}
       <div class="t">IoT-Based Smart Homes: Technologies, Security Risks and Countermeasures<span class="badge">Published</span></div>
       <div class="v">International Journal of Information Engineering and Electronic Business (IJIEEB), vol. 18, no. 3, June 2026</div>
       <div class="a"><b>Tanvir Ahmed</b>, Akhterujjaman Siddiquee, Sheikh Sidratul Muntaha Punno, Md. Moshiur Rahman, Fahmida Ahmed Antara, Sadia Enam</div>
+      <div class="plinks"><a href="https://doi.org/10.5815/ijieeb.2026.03.11" target="_blank" rel="noopener">Read paper (DOI)</a></div>
     </div>
   </div>
 
@@ -232,11 +235,13 @@ footer{margin-top:64px;color:var(--muted);font-size:.85rem}
       <div class="t">Transformer-Based Models for Student Mental Health Detection: A Comparative Study of BERT, RoBERTa and Gemma</div>
       <div class="v">IEEE 5th International Conference on Electrical, Computer &amp; Telecommunication Engineering (ICECTE), 2026</div>
       <div class="a">Sheikh Sidratul Muntaha Punno, <b>Tanvir Ahmed</b>, Md. Akhtarujjaman Siddiquee, Suman Saha</div>
+      <div class="plinks"><a href="https://ieeexplore.ieee.org/document/11429254" target="_blank" rel="noopener">View on IEEE Xplore</a></div>
     </div>
     <div class="pub">
       <div class="t">AgriMind: An IoT-Driven LLM Framework for Intelligent Precision Agriculture</div>
       <div class="v">IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence, and Networking (QPAIN), 2026</div>
       <div class="a">Sheikh Sidratul Muntaha Punno, <b>Tanvir Ahmed</b>, Md. Akhtarujjaman Siddiquee, Zohaira Khan Amisha, Saurav Chandra Das</div>
+      <div class="plinks"><a href="https://ieeexplore.ieee.org/document/11546542" target="_blank" rel="noopener">View on IEEE Xplore</a></div>
     </div>
   </div>
 
@@ -311,15 +316,79 @@ footer{margin-top:64px;color:var(--muted);font-size:.85rem}
         <li>Remote monitoring and control of tunnel ventilation and other devices through the Blynk platform.</li>
       </ul>
       <ul class="tags small"><li>ESP32</li><li>Blynk</li><li>MQ135</li><li>BH1750</li></ul>
+      <div class="plinks"><a href="https://github.com/tanvir55539/Smart-Tunnel-for-Maintenance-and-Security" target="_blank" rel="noopener">Code, circuit design and project paper</a></div>
     </div>
   </div>
 
-  <p style="margin-top:12px">More code is on <a href="https://github.com/tanvir55539" target="_blank" rel="noopener">GitHub</a>.</p>
+  <h3 class="sub">More software projects</h3>
+
+  <div class="row">
+    <div class="meta">Personal project</div>
+    <div>
+      <h3>Object and Fire Detection with ESP32-CAM</h3>
+      <ul><li>Streams video from an ESP32-CAM and detects COCO-set objects with OpenCV. Pressing a key switches on fire detection.</li><li>When a person is detected, the program takes a photo and uploads it to Google Drive automatically.</li></ul>
+      <ul class="tags small"><li>ESP32-CAM</li><li>Python</li><li>OpenCV</li><li>Google Drive API</li></ul>
+      <div class="plinks"><a href="https://github.com/tanvir55539/object_and_fire_detection" target="_blank" rel="noopener">View on GitHub</a></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Personal project</div>
+    <div>
+      <h3>MyChatApp</h3>
+      <ul><li>Android chat app with Firebase login and registration, real-time messaging in Firestore and a list of other users.</li><li>Users can view and update their profile, including a profile picture. The interface uses Jetpack Compose and Navigation Compose.</li></ul>
+      <ul class="tags small"><li>Kotlin</li><li>Jetpack Compose</li><li>Firebase</li><li>Firestore</li></ul>
+      <div class="plinks"><a href="https://github.com/tanvir55539/MyChatApp" target="_blank" rel="noopener">View on GitHub</a></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Personal project</div>
+    <div>
+      <h3>Todo App with FastAPI and React</h3>
+      <ul><li>Full-stack todo app with a FastAPI backend and a React frontend.</li><li>Includes login and registration, plus screens to add, view and edit todos. The README shows each screen.</li></ul>
+      <ul class="tags small"><li>FastAPI</li><li>React</li><li>Python</li><li>SQLite</li></ul>
+      <div class="plinks"><a href="https://github.com/tanvir55539/TodoApp-FastApi-React-" target="_blank" rel="noopener">View on GitHub</a></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Personal project</div>
+    <div>
+      <h3>Meeting App</h3>
+      <ul><li>Flutter application with Android, iOS, web, Windows, macOS and Linux targets.</li></ul>
+      <ul class="tags small"><li>Flutter</li><li>Dart</li></ul>
+      <div class="plinks"><a href="https://github.com/tanvir55539/meeting_app" target="_blank" rel="noopener">View on GitHub</a></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Personal project</div>
+    <div>
+      <h3>MP3 Music Player</h3>
+      <ul><li>Desktop music player in Java that plays tracks from a playlist file. Built as an Apache NetBeans project.</li></ul>
+      <ul class="tags small"><li>Java</li><li>NetBeans</li></ul>
+      <div class="plinks"><a href="https://github.com/tanvir55539/mp3-Music-player" target="_blank" rel="noopener">View on GitHub</a></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="meta">Personal project</div>
+    <div>
+      <h3>Hostel Management System</h3>
+      <ul><li>Java desktop application for managing a hostel, built as an Apache NetBeans project.</li></ul>
+      <ul class="tags small"><li>Java</li><li>NetBeans</li></ul>
+      <div class="plinks"><a href="https://github.com/tanvir55539/Hostel-Management-System" target="_blank" rel="noopener">View on GitHub</a></div>
+    </div>
+  </div>
+
+  <p style="margin-top:24px">All repositories are on <a href="https://github.com/tanvir55539?tab=repositories" target="_blank" rel="noopener">GitHub</a>.</p>
 </section>
 
 <section id="skills">
   <h2>Skills</h2>
   <div class="skill"><h3>Programming</h3><ul class="tags"><li>C</li><li>C++</li><li>Python</li><li>Java</li><li>Kotlin</li><li>Dart</li></ul></div>
+  <div class="skill"><h3>Web and mobile</h3><ul class="tags"><li>Flutter</li><li>Jetpack Compose</li><li>FastAPI</li><li>React</li><li>Firebase</li><li>OpenCV</li></ul></div>
   <div class="skill"><h3>Embedded and IoT</h3><ul class="tags"><li>Arduino</li><li>ESP8266</li><li>ESP32</li><li>ESP32-CAM</li><li>Raspberry Pi</li></ul></div>
   <div class="skill"><h3>AI and machine learning</h3><ul class="tags"><li>Machine Learning</li><li>Deep Learning</li><li>NLP</li><li>LLM fine-tuning</li><li>Computer Vision</li><li>Transformers</li><li>BERT</li><li>RoBERTa</li></ul></div>
   <div class="skill"><h3>Platforms and tools</h3><ul class="tags"><li>Blynk IoT</li><li>Tinkercad</li><li>Google Colab</li><li>Android Studio</li><li>VS Code</li><li>PyCharm</li><li>Arduino IDE</li><li>Cisco Packet Tracer</li><li>VMware Workstation</li><li>Firebase</li><li>SQLite</li><li>MySQL Workbench</li><li>Git</li><li>GitHub</li></ul></div>
